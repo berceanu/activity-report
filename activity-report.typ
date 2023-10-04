@@ -45,35 +45,34 @@
 
 #let results = v(2em) + [*În urma desfășurării activităților prezentate, au fost obținute următoarele rezultate.*] + v(1em)
 
-#let mk_signatures(
+#let mk_signature_grid(
   department_head,
   scientific_director,
   sign_date,
 ) = {
   v(2em)
-  stack(dir: ltr,
-  block[
-    *Data:* #sign_date \
-    *Semnătura,* \
-    #image("signature.png", height: 2em)
-  ],
-  1fr,
-  block[
-    #upper(strong([Avizat,])) \ 
-    *Șef LGED* \
-    #department_head
-    ],
-  1fr,
-  block[
-    #upper(strong([Avizat,])) \ 
-    *Director Științific* \
-    #text(if scientific_director == none {
-      hide("a")
+  grid(
+    columns: (1fr, 1fr, 1fr),
+    rows: (auto, auto, auto),
+    row-gutter: 0.5em,
+    align(left)[*Data:* #sign_date],
+    align(center)[#upper(strong("Avizat,"))], 
+    align(right)[#upper(strong("Avizat,"))], 
+    align(left)[*Semnătura,*],
+    align(center)[*Șef LGED*],
+    align(right)[*Director Științific*],
+    align(left)[#move(dy: -0.4em, image("signature.png", height: 2em))],
+    align(center)[#text(if department_head == none {
+      hide("x")
+      } else {
+        department_head
+      })],
+    align(right)[#text(if scientific_director == none {
+      hide("x")
       } else {
         scientific_director
-      })
-      ]
-  )  
+      })],
+  )
 }
 
 
@@ -111,5 +110,5 @@
 
   body
   
-  mk_signatures(department_head, scientific_director, sign_date)
+  mk_signature_grid(department_head, scientific_director, sign_date)
 }
