@@ -19,7 +19,7 @@
 ) = {
   set text(font: "DejaVu Sans", 14pt)
   show text: strong
-  align(center, [#upper(title)])
+  align(center, upper(title))
 }
 
 #let mk_date(
@@ -45,7 +45,7 @@
 
 #let results = v(2em) + [*În urma desfășurării activităților prezentate, au fost obținute următoarele rezultate.*] + v(1em)
 
-#let mk_signature_grid(
+#let mk_signatures(
   department_head,
   scientific_director,
   sign_date,
@@ -56,22 +56,14 @@
     rows: (auto, auto, auto),
     row-gutter: 0.5em,
     align(left)[*Data:* #sign_date],
-    align(center)[#upper(strong("Avizat,"))], 
-    align(right)[#upper(strong("Avizat,"))], 
+    align(center, upper(strong("Avizat,"))), 
+    align(right, upper(strong("Avizat,"))), 
     align(left)[*Semnătura,*],
     align(center)[*Șef LGED*],
     align(right)[*Director Științific*],
-    align(left)[#move(dy: -0.4em, image("signature.png", height: 2em))],
-    align(center)[#text(if department_head == none {
-      hide("x")
-      } else {
-        department_head
-      })],
-    align(right)[#text(if scientific_director == none {
-      hide("x")
-      } else {
-        scientific_director
-      })],
+    align(left, move(dy: -0.4em, image("signature.png", height: 2em))),
+    align(center, department_head),
+    align(right, scientific_director),
   )
 }
 
@@ -110,5 +102,5 @@
 
   body
   
-  mk_signature_grid(department_head, scientific_director, sign_date)
+  mk_signatures(department_head, scientific_director, sign_date)
 }
