@@ -19,7 +19,7 @@
 ) = {
   set text(font: "DejaVu Sans", 14pt)
   show text: strong
-  align(center, upper(title))
+  align(center, [#upper(title)#footnote("Se completează lunar")])
 }
 
 #let mk_date(
