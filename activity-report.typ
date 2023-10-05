@@ -81,6 +81,10 @@
   scientific_director: "Victor Malka",
   body,
 ) = {
+  set document(
+    title: title,
+    author: your_name,
+  )
   set page(
     paper: "a4",
     margin: (top: 1.5cm, bottom: 1.5cm, left: 2cm, right: 2cm),
