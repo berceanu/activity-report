@@ -38,19 +38,18 @@
   *Numele și prenumele:* #your_name \
   *Funcția în cadrul proiectului:* #your_position
   ]
-  v(2em)
 }
 
-#let activities = [*În această perioadă au fost desfășurate următoarele activități.*] + v(1em)
+#let activities = v(1fr) + [*În această perioadă au fost desfășurate următoarele activități.*] + v(1em)
 
-#let results = v(2em) + [*În urma desfășurării activităților prezentate, au fost obținute următoarele rezultate.*] + v(1em)
+#let results = v(1fr) + [*În urma desfășurării activităților prezentate, au fost obținute următoarele rezultate.*] + v(1em)
 
 #let mk_signatures(
   department_head,
   scientific_director,
   sign_date,
 ) = {
-  v(2em)
+  v(1fr)
   grid(
     columns: (1fr, 1fr, 1fr),
     rows: (auto, auto, auto),
@@ -106,6 +105,5 @@
 
   body
   
-  v(1fr)
   mk_signatures(department_head, scientific_director, sign_date)
 }
