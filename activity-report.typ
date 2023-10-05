@@ -106,5 +106,8 @@
 
   body
   
+  v(1fr)
   mk_signatures(department_head, scientific_director, sign_date)
+
+  //align(bottom, mk_signatures(department_head, scientific_director, sign_date))
 }
