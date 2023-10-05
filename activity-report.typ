@@ -83,7 +83,7 @@
 ) = {
   set page(
     paper: "a4",
-    margin: (top: 2cm, bottom: 2cm, left: 2cm, right: 2cm),
+    margin: (top: 1.5cm, bottom: 1.5cm, left: 2cm, right: 2cm),
   )
   mk_header(proiect, contract, anexa)
   mk_title(title)
