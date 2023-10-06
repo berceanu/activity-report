@@ -60,10 +60,11 @@
     align(left)[*Semnătura,*],
     align(center)[*Șef LGED*],
     align(right)[*Director Științific*],
-    align(left, move(dy: -0.4em, image("signature.png", height: 2em))),
+    align(left, move(dy: -0.4em, image("signature.png", height: 1em))),
     align(center, department_head),
     align(right, scientific_director),
   )
+  v(2em)
 }
 
 
