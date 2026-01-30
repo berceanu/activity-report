@@ -3,15 +3,16 @@
   contract,
   anexa,
 ) = {
-    set text(font: "DejaVu Sans", 12pt)
-    show text: strong
-    stack(dir: ltr,
-        [#upper(proiect) \
-         #upper(contract)],
-        1fr,
-        [#upper(anexa)]
-    )
-    v(2em)
+  set text(font: "DejaVu Sans", 12pt)
+  show text: strong
+  stack(
+    dir: ltr,
+    [#upper(proiect) \
+      #upper(contract)],
+    1fr,
+    [#upper(anexa)],
+  )
+  v(2em)
 }
 
 #let mk_title(
@@ -35,32 +36,32 @@
 ) = {
   v(2em)
   block[
-  *Numele și prenumele:* #your_name \
-  *Funcția în cadrul proiectului:* #your_position
+    *Numele și prenumele:* #your_name \
+    *Funcția în cadrul proiectului:* #your_position
   ]
 }
 
 #let activities = v(1fr) + [*În această perioadă au fost desfășurate următoarele activități.*] + v(1em)
 
-#let results = v(1fr) + [*În urma desfășurării activităților prezentate, au fost obținute următoarele rezultate.*] + v(1em)
+#let results = (
+  v(1fr) + [*În urma desfășurării activităților prezentate, au fost obținute următoarele rezultate.*] + v(1em)
+)
 
 #let mk_signatures(
   department_head,
   scientific_director,
   sign_date,
+  signature_height: 2em,
+  signature_image: "signature.png",
 ) = {
   v(1fr)
   grid(
     columns: (1fr, 1fr, 1fr),
     rows: (auto, auto, auto),
     row-gutter: 0.5em,
-    align(left)[*Data:* #sign_date],
-    align(center, upper(strong("Avizat,"))), 
-    align(right, upper(strong("Avizat,"))), 
-    align(left)[*Semnătura,*],
-    align(center)[*Șef LGED*],
-    align(right)[*Director Științific*],
-    align(left, move(dy: -0.4em, image("signature.png", height: 1em))),
+    align(left)[*Data:* #sign_date], align(center, upper(strong("Avizat,"))), align(right, upper(strong("Avizat,"))),
+    align(left)[*Semnătura,*], align(center)[*Șef LGED*], align(right)[*Director Științific*],
+    align(left, move(dy: -0.4em, image(signature_image, height: signature_height))),
     align(center, department_head),
     align(right, scientific_director),
   )
@@ -79,6 +80,8 @@
   sign_date: none,
   department_head: "Ovidiu Teșileanu",
   scientific_director: "Victor Malka",
+  signature_height: 2em,
+  signature_image: "signature.png",
   body,
 ) = {
   set document(
@@ -92,10 +95,10 @@
   mk_header(proiect, contract, anexa)
   mk_title(title)
   mk_date(month)
-  
+
   set text(
     lang: "ro",
-    font: "Linux Libertine", 
+    font: "Linux Libertine",
     size: 12pt,
   )
   set par(
@@ -105,6 +108,6 @@
   mk_name_position(your_name, your_position)
 
   body
-  
-  mk_signatures(department_head, scientific_director, sign_date)
+
+  mk_signatures(department_head, scientific_director, sign_date, signature_height, signature_image)
 }
