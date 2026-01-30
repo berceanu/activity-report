@@ -109,5 +109,11 @@
 
   body
 
-  mk_signatures(department_head, scientific_director, sign_date, signature_height, signature_image)
+  mk_signatures(
+    department_head,
+    scientific_director,
+    sign_date,
+    signature_height: signature_height,
+    signature_image: signature_image,
+  )
 }
